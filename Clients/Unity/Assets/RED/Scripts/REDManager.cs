@@ -177,7 +177,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PostAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/admin/create-experiment", host, port, api_version),
+                string.Format("{0}:{1}/red-api/{2}/admin/create-experiment", host, port, api_version),
                 new StringContent(msg, Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
@@ -214,7 +214,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PostAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/admin/get-number-participants/{3}", host, port, api_version, experiment_id),
+                string.Format("{0}:{1}/red-api/{2}/admin/get-number-participants/{3}", host, port, api_version, experiment_id),
                 new StringContent(msg, Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
@@ -250,7 +250,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PostAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/admin/get-participants/{3}", host, port, api_version, experiment_id),
+                string.Format("{0}:{1}/red-api/{2}/admin/get-participants/{3}", host, port, api_version, experiment_id),
                 new StringContent(msg, Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
@@ -328,7 +328,7 @@ public class REDManager : MonoBehaviour
                 using (var client = new HttpClient())
                 {
                     var response = await client.PostAsync(
-                        string.Format("http://{0}:{1}/red-api/{2}/admin/get-data/{3}/{4}/{5}", host, port, api_version, experiment_id, p.participant_id, t.name),
+                        string.Format("{0}:{1}/red-api/{2}/admin/get-data/{3}/{4}/{5}", host, port, api_version, experiment_id, p.participant_id, t.name),
                         new StringContent(msg, Encoding.UTF8, "application/json"));
 
 
@@ -390,7 +390,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PostAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/register-participant/{3}", host, port, api_version, experiment_id),
+                string.Format("{0}:{1}/red-api/{2}/register-participant/{3}", host, port, api_version, experiment_id),
                 new StringContent(msg, Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
@@ -419,7 +419,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PutAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/finish-participant/{3}/{4}", host, port, api_version, experiment_id, participant_id),
+                string.Format("{0}:{1}/red-api/{2}/finish-participant/{3}/{4}", host, port, api_version, experiment_id, participant_id),
                 new StringContent("{}", Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
@@ -449,7 +449,7 @@ public class REDManager : MonoBehaviour
         using (var client = new HttpClient())
         {
             var response = await client.PutAsync(
-                string.Format("http://{0}:{1}/red-api/{2}/add-data/{3}/{4}/{5}", host, port, api_version, experiment_id, participant_id, table),
+                string.Format("{0}:{1}/red-api/{2}/add-data/{3}/{4}/{5}", host, port, api_version, experiment_id, participant_id, table),
                 new StringContent(msg, Encoding.UTF8, "application/json"));
 
             string content = await response.Content.ReadAsStringAsync();
